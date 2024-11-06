@@ -81,19 +81,44 @@ class DNN(keras.Model):
         super().compile(optimizer=adam, loss='mse', metrics=['mse', 'mae'])
         super().fit(x_train, y_train, epochs=self.epochs, batch_size=self.batch_size, **kwargs)
 
+    #DU inclusion of the load and save weights. 
+    def save_weights(self, fn):
+        """Save the model weights to a file."""
+        if fn.endswith('.h5'):
+            # Save in HDF5 format
+            super().save_weights(fn, save_format='h5')
+        elif fn.endswith('.chkpt'):
+            # Save in TensorFlow checkpoint format
+            super().save_weights(fn, save_format='tf')
+        else:
+            # Default to TensorFlow checkpoint format if no extension or unrecognized
+            print("Warning: Unknown file extension. Defaulting to TensorFlow checkpoint format (.chkpt)")
+            super().save_weights(fn + '.chkpt', save_format='tf')
+
+    def load_weights(self, fn):
+        """Load the model weights from a file."""
+        if fn.endswith('.h5') or fn.endswith('.chkpt'):
+            super().load_weights(fn)
+        else:
+            # Default to TensorFlow checkpoint format if no extension or unrecognized
+            print("Warning: Unknown file extension. Defaulting to TensorFlow checkpoint format (.chkpt)")
+            super().load_weights(fn + '.chkpt')
+
+
+
 class DNN_Mordred(DNN):
     _n_layers = 4
     _layer_size = 256
     batch_size = 256
     learning_rate = 0.01
-    epochs = 1000
+    epochs = 10  #00
 
 class DNN_ECFP(DNN):
     _n_layers = 1
     _layer_size = 2048
     batch_size = 512
     learning_rate = 0.001
-    epochs = 1000
+    epochs = 10 #00
 
 class RF:
     seed = 9700
