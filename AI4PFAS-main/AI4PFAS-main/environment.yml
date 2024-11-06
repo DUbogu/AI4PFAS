@@ -25,7 +25,7 @@ dependencies:
   - gpflow
   - torch-geometric
   - torch==2.3.1+cu118
-  - torchvision==0.18.1+cu118
+  - torchvision=0.18.1+cu118
   - tensorflow-probability  
   - openpyxl=3.1.5  
   - tk=8.6.14   
@@ -34,8 +34,6 @@ dependencies:
   - h5py=3.12.1
   - keras=3.5.0 
   - tensorflow-io-gcs-filesystem=0.31.0    
-  - tensorflow-probability=0.24.0       
-  - torch-geometric=2.6.1        
   - typing_extensions=4.12.2 
   - datasets
   - ipywidgets
