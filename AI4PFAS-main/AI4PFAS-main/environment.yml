@@ -16,7 +16,6 @@ dependencies:
 - seaborn
 - rdkit
 - ipython
-- matplotlib
 - scipy
 - scikit-learn
 - pytorch
@@ -25,22 +24,19 @@ dependencies:
 - pip:
   - gpflow
   - torch-geometric
-  - tensorflow=2.3
-  - tensorflow-probability=0.11.1
-  - openssl=3.3.2 
+  - torch==2.3.1+cu118
+  - torchvision==0.18.1+cu118
+  - tensorflow-probability  
   - openpyxl=3.1.5  
   - tk=8.6.14   
   - tf-keras=2.17.0
   - zlib=1.2.13   
-  - zipp=3.20.2
   - h5py=3.12.1
   - keras=3.5.0 
-  - tabulate=0.9.0  
-  - tensorboard=2.17.1
   - tensorflow-io-gcs-filesystem=0.31.0    
   - tensorflow-probability=0.24.0       
-  - torch=2.4.1    
   - torch-geometric=2.6.1        
   - typing_extensions=4.12.2 
-  - stack_data=0.6.2
+  - datasets
+  - ipywidgets
   
